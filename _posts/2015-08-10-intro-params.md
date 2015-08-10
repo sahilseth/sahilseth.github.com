@@ -1,7 +1,7 @@
 ---
 layout: post
-title: params Simplifying Params
-date: 2013-05-06 15:27:31
+title: params; Simplifying Params
+date: 2015-08-10 15:27:31
 ---
 
 I have been developing and using R packages to wrangl genomics data for a few years. Often we have a huge list of parameters including paths to apps, their default parameters and reference genomes and other related files. While its possible to use R's default `options()` function to manage these, often the space becomes quite cluttered. 
