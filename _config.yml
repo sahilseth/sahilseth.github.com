@@ -14,3 +14,6 @@ owner:
   name: Sahil Seth
   disqus_shortname: sahilseth
   twitter: sethsa
+
+gems:
+ - jekyll-feed
