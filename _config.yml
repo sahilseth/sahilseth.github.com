@@ -1,19 +1,59 @@
-title: The Other Hypothesis
-description: "Genomics, Statistics and R"
+# Site wide configuration
 
-url: http://sahilseth.github.io
-port: 3000
+title: The Other Hypothesis
+locale: en_US
+description: musing about genomics, R and statistics.
+#logo: site-logo.png
+search: true
+url: http://127.0.0.1:4000
+
+# Jekyll configuration
+
+permalink:   /:year/:month/:day/:title.html
+# Valid options are [ maruku | rdiscount | kramdown | redcarpet ]
+markdown:    kramdown
 highlighter: pygments
 
-permalink: /:year/:month/:day/:title.html
-markdown: redcarpet
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
 
-google_analytics: #
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..2
+  enable_coderay: false
 
+mathjax: true
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
+
+
+# Site owner
 owner:
   name: Sahil Seth
-  disqus_shortname: sahilseth
+  avatar: bio-photo.jpg
+  email: me@sahilseth.com
+  disqus-shortname: sahilseth
   twitter: sethsa
-
-gems:
- - jekyll-feed
+  facebook: #username
+  github: sahilseth
+  stackexchange: http://stackexchange.com/users/2875225/sahil-seth
+  linkedin: sahilseth
+  instagram: #username
+  flickr: #username
+  tumblr: #username
+  pinterest: #username
+  weibo: #userid
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:

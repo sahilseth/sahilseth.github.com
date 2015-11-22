@@ -1,0 +1,23 @@
+# Site navigation links
+
+- title: About
+  url: /about/
+
+#- title: Articles
+#  url: /articles/
+
+#- title: Blog
+#  url: /blog/
+
+- title: publications
+  url: https://scholar.google.com/citations?user=aXwxLwEAAAAJ
+
+- title: LinkedIn
+  url: https://www.linkedin.com/in/sahilseth
+
+- title: Github
+  url: http://github.com/sahilseth
+  
+  
+- title: Search
+  url: /search/

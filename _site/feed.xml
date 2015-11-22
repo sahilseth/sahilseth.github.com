@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">The Other Hypothesis</title>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://127.0.0.1:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://127.0.0.1:4000" />
+<updated>2015-11-22T17:29:21-06:00</updated>
+<id>http://127.0.0.1:4000/</id>
+<author>
+  <name>Sahil Seth</name>
+  <uri>http://127.0.0.1:4000/</uri>
+  <email>me@sahilseth.com</email>
+</author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[params; Simplifying Params]]></title>
+  <link rel="alternate" type="text/html" href="http://127.0.0.1:4000/2015/08/10/intro-params.html" />
+  <id>http://127.0.0.1:4000/2015/08/10/intro-params</id>
+  <published>2015-08-10T10:27:31-05:00</published>
+  <updated>2015-08-10T10:27:31-05:00</updated>
+  <author>
+    <name>Sahil Seth</name>
+    <uri>http://127.0.0.1:4000</uri>
+    <email>me@sahilseth.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;I have been using R packages to wrangle genomics data for a few years. Often we have a huge list of parameters including paths to apps, their default parameters, reference genome files and other related files. While it is possible to use R’s default &lt;code&gt;options()&lt;/code&gt; function to manage these, often the space becomes quite cluttered.&lt;/p&gt;
+
+&lt;p&gt;Recently, I made a using a small package &lt;code&gt;params&lt;/code&gt;, which reads configuration files and loads there parameters into R. This attempts to solve a 3 things,&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;easy reading and loading of parameters [&lt;code&gt;load_opts()&lt;/code&gt;]&lt;/li&gt;
+  &lt;li&gt;dynamic changing of params [&lt;code&gt;set_opts()&lt;/code&gt;]&lt;/li&gt;
+  &lt;li&gt;fetching and pretty printing of params [&lt;code&gt;get_opts()&lt;/code&gt;]&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;load_opts()&lt;/code&gt;&lt;/strong&gt; can automatically recognize a few file extensions, read and load these files:&lt;/p&gt;
+
+&lt;p&gt;a. conf/tsv/tab/txt: tab delimited files&lt;br /&gt;
+b. csv: comma separated&lt;br /&gt;
+c. xlsx: microsoft excel files (handle with care)&lt;/p&gt;
+
+&lt;p&gt;For example, a &lt;code&gt;.conf&lt;/code&gt; file is assumed to be tab delimited.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conf = system.file(&quot;conf/params.conf&quot;, package = &quot;params&quot;)
+opts2 = load_opts(conf)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now if we have a bunch of parameters, its always easier to seem them as a table; &lt;code&gt;get_opts()&lt;/code&gt; to rescue. This uses the nifty kable function from knitr.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;get_opts()
+|name          |value            |
+|:-------------|:----------------|
+|default_regex |(.*)             |
+|my_conf_path  |~/flowr/conf     |
+|my_dir        |path/to/a/folder |
+|my_path       |~/flowr          |
+|my_tool_exe   |/usr/bin/ls      |
+|verbose       |2                |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To extract a specific parameter, simply use &lt;code&gt;get_opts(&quot;paramname&quot;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, there are times where we may have a set of nested parameters; i.e. a former parameter is a part of later. This is quite useful, such that one may define the base path for all the tools, and all other paths would be relative to it (&lt;code&gt;}/samtools&lt;/code&gt;, &lt;code&gt;}/bwa&lt;/code&gt;, etc.).&lt;/p&gt;
+
+&lt;p&gt;Taking a simple example, lets use first and last names.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set_opts(first = &quot;John&quot;, last = &quot;Doe&quot;, ## setting first and last names
+    &#39;full_name&#39; = &quot;} }&quot;) ## setting full name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Automatic checking&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Additionally, values all parameters ending with &lt;code&gt;_exe|_path|_dir&lt;/code&gt; are checked by &lt;code&gt;load_opts&lt;/code&gt;, whether they exist or not. If they don’t exist a warning (not error) is thrown, informing user of the issue.&lt;/p&gt;
+
+&lt;p&gt;The package is already on &lt;a href=&quot;https://cran.rstudio.com/web/packages/params/index.html&quot;&gt;CRAN&lt;/a&gt;, though a more recent devel version is available on &lt;a href=&quot;https://github.com/sahilseth/params&quot;&gt;github&lt;/a&gt;. Also, a detailed readme and examples are available on the &lt;a href=&quot;http://sahilseth.com/params/&quot;&gt;staticdocs&lt;/a&gt; website.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2015/08/10/intro-params.html&quot;&gt;params; Simplifying Params&lt;/a&gt; was originally published by Sahil Seth at &lt;a href=&quot;http://127.0.0.1:4000&quot;&gt;The Other Hypothesis&lt;/a&gt; on August 10, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>
