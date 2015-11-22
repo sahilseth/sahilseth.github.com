@@ -1,0 +1,19 @@
+title: The Other Hypothesis
+description: "Genomics, Statistics and R"
+
+url: http://sahilseth.github.io
+port: 3000
+highlighter: pygments
+
+permalink: /:year/:month/:day/:title.html
+markdown: redcarpet
+
+google_analytics: #
+
+owner:
+  name: Sahil Seth
+  disqus_shortname: sahilseth
+  twitter: sethsa
+
+gems:
+ - jekyll-feed
