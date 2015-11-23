@@ -3,7 +3,7 @@ layout: post
 title: params; Simplifying Params
 date: 2015-08-10
 categories: blog
-excerpt: "CRAN package which lets you easily set, get and load parameters/optsions, on [cran](https://cran.rstudio.com/web/packages/params/index.html)"
+excerpt: "CRAN package which lets you easily set, get and load parameters/options; on cran.rstudio.com/web/packages/params"
 tags:
 - R
 - params
