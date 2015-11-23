@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://sahilseth.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://sahilseth.com" />
-<updated>2015-11-23T00:08:09-06:00</updated>
+<updated>2015-11-23T00:47:54-06:00</updated>
 <id>http://sahilseth.com/</id>
 <author>
   <name>Sahil Seth</name>
@@ -37,6 +37,8 @@
   &lt;li&gt;fetching and pretty printing of params [&lt;code&gt;get_opts()&lt;/code&gt;]&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;h3 id=&quot;easy-loading-of-params-using-tsv-files&quot;&gt;easy loading of params, using tsv files&lt;/h3&gt;
+
 &lt;p&gt;Basically, &lt;strong&gt;&lt;code&gt;load_opts()&lt;/code&gt;&lt;/strong&gt; can automatically recognize a few file extensions, read and load these files:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -47,13 +49,16 @@
 
 &lt;p&gt;For example, a &lt;code&gt;.conf&lt;/code&gt; file is assumed to be tab delimited.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;conf = system.file(&quot;conf/params.conf&quot;, package = &quot;params&quot;)
+&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;conf = system.file(&quot;conf/params.conf&quot;, package = &quot;params&quot;)
 opts = load_opts(conf)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now if we have a bunch of parameters, its always easier to seem them as a table; &lt;code&gt;get_opts()&lt;/code&gt; to rescue. This uses the nifty &lt;code&gt;kable&lt;/code&gt; function from knitr.&lt;/p&gt;
+&lt;h3 id=&quot;pretty-printing&quot;&gt;pretty printing&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;get_opts()
+&lt;p&gt;Now if we have a bunch of parameters, it is always easier to see them as a table; &lt;code&gt;get_opts()&lt;/code&gt; to the rescue. This uses the nifty &lt;code&gt;kable&lt;/code&gt; function from knitr.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;get_opts()
+
 |name          |value            |
 |:-------------|:----------------|
 |default_regex |(.*)             |
@@ -66,21 +71,32 @@ opts = load_opts(conf)
 
 &lt;p&gt;To extract a specific parameter, simply use &lt;code&gt;get_opts(&quot;param_name&quot;)&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Additionally, there are times where we may have a set of nested parameters; i.e. a former parameter is a part of later. This is quite useful, such that one may define the base path for all the tools, and all other paths would be relative to it (&lt;code&gt;}/samtools&lt;/code&gt;, &lt;code&gt;}/bwa&lt;/code&gt;, etc.).&lt;/p&gt;
+&lt;h3 id=&quot;nested-parameters&quot;&gt;nested parameters&lt;/h3&gt;
+
+&lt;p&gt;Additionally, there are times where we may have a set of nested parameters; i.e. a former parameter is a part of later. This is quite useful, such that one may define the base path for all the tools (say &lt;code&gt;toolpath&lt;/code&gt;), now all other paths would be relative to it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+{{{toolpath}}}/samtools
+{{{toolpath}}}/bwa
+
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Taking a simple example, lets use first and last names.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;## setting first and last names
+&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;
+## setting first and last names
 ## setting full name
-set_opts(first = &quot;John&quot;, last = &quot;Doe&quot;,
-        &#39;full_name&#39; = &#39;} }&#39;)
+set_opts(first = &quot;John&quot;, last = &quot;Doe&quot;, full_name = &#39;{{{first}}} {{{last}}}&#39;)
+
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;Automatic checking&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now, &lt;code&gt;get_opts(&quot;full_name&quot;)&lt;/code&gt; would reveal &lt;code&gt;John Doe&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Additionally, values all parameters ending with &lt;code&gt;_exe|_path|_dir&lt;/code&gt; are checked by &lt;code&gt;load_opts&lt;/code&gt;, whether they exist or not. If they don’t exist a warning (not error) is thrown, informing user of the issue.&lt;/p&gt;
+&lt;h3 id=&quot;automatic-checking-of-file-path&quot;&gt;automatic checking of file path&lt;/h3&gt;
 
-&lt;p&gt;The package is already on &lt;a href=&quot;https://cran.rstudio.com/web/packages/params/index.html&quot;&gt;CRAN&lt;/a&gt;, though a more recent devel version is available on &lt;a href=&quot;https://github.com/sahilseth/params&quot;&gt;github&lt;/a&gt;. Also, a detailed readme and examples are available on the &lt;a href=&quot;http://sahilseth.com/params/&quot;&gt;this website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Additionally, values of all parameters ending with &lt;code&gt;_exe|_path|_dir&lt;/code&gt; are checked by &lt;code&gt;load_opts&lt;/code&gt;; whether they exist or not. If they don’t exist a warning (not error) is thrown, informing the user of the issue.&lt;/p&gt;
+
+&lt;p&gt;The package is on &lt;a href=&quot;https://cran.rstudio.com/web/packages/params/index.html&quot;&gt;CRAN&lt;/a&gt;, though a more recent development version is available at &lt;a href=&quot;https://github.com/sahilseth/params&quot;&gt;github.com/sahilseth/params&lt;/a&gt;. Also, a detailed readme with examples are available on the &lt;a href=&quot;http://sahilseth.com/params/&quot;&gt;sahilseth.com/params&lt;/a&gt;.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://sahilseth.com/blog/2015/08/10/intro-params.html&quot;&gt;params; Simplifying Params&lt;/a&gt; was originally published by Sahil Seth at &lt;a href=&quot;http://sahilseth.com&quot;&gt;The Other Hypothesis&lt;/a&gt; on August 10, 2015.&lt;/p&gt;
   </content>

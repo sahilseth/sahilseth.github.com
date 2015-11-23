@@ -37,10 +37,11 @@ opts = load_opts(conf)
 
 ### pretty printing
 
-Now if we have a bunch of parameters, its always easier to seem them as a table; `get_opts()` to rescue. This uses the nifty `kable` function from knitr.
+Now if we have a bunch of parameters, it is always easier to see them as a table; `get_opts()` to the rescue. This uses the nifty `kable` function from knitr.
 
 ```r
 get_opts()
+
 |name          |value            |
 |:-------------|:----------------|
 |default_regex |(.*)             |
@@ -55,14 +56,25 @@ To extract a specific parameter, simply use `get_opts("param_name")`.
 
 ### nested parameters
 
-Additionally, there are times where we may have a set of nested parameters; i.e. a former parameter is a part of later. This is quite useful, such that one may define the base path for all the tools, and all other paths would be relative to it (`{{{toolpath}}}/samtools`, `{{{toolpath}}}/bwa`, etc.).
+Additionally, there are times where we may have a set of nested parameters; i.e. a former parameter is a part of later. This is quite useful, such that one may define the base path for all the tools (say `toolpath`), now all other paths would be relative to it:
+
+```
+{% raw %}
+{{{toolpath}}}/samtools
+{{{toolpath}}}/bwa
+{% endraw %}
+```
+
+
 
 Taking a simple example, lets use first and last names.
 
 ```r
+{% raw %}
 ## setting first and last names
 ## setting full name
 set_opts(first = "John", last = "Doe", full_name = '{{{first}}} {{{last}}}')
+{% endraw %}
 ```
 
 Now, `get_opts("full_name")` would reveal `John Doe`.
