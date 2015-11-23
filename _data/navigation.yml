@@ -6,8 +6,8 @@
 #- title: Articles
 #  url: /articles/
 
-#- title: Blog
-#  url: /blog/
+- title: blog
+  url: /blog/
 
 - title: publications
   url: https://scholar.google.com/citations?user=aXwxLwEAAAAJ
@@ -17,7 +17,6 @@
 
 - title: Github
   url: http://github.com/sahilseth
-  
-  
+
 - title: Search
   url: /search/

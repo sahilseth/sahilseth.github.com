@@ -9,7 +9,7 @@ url: http://sahilseth.com
 
 # Jekyll configuration
 
-permalink:   /:year/:month/:day/:title.html
+permalink:   /blog/:year/:month/:day/:title.html
 # Valid options are [ maruku | rdiscount | kramdown | redcarpet ]
 markdown:    kramdown
 highlighter: pygments

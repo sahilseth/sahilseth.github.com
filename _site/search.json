@@ -3,7 +3,7 @@
   
     {
       "title"			: "params; Simplifying Params",
-      "link"			: "http://127.0.0.1:4000/2015/08/10/intro-params.html",
+      "link"			: "http://sahilseth.com/blog/2015/08/10/intro-params.html",
       "excerpt"		: "<p>I have been using R packages to wrangle genomics data for a few years. Often we have a huge list of parameters including paths to apps, their default parameters, reference genome files and other related files. While it is possible to use R’s default <code>options()</code> function to manage these, often the space becomes quite cluttered.</p>
 
 "
@@ -27,7 +27,7 @@
   
     ,{
       "title"			: "Sahil Seth",
-      "link"			: "http://127.0.0.1:4000/about/",
+      "link"			: "http://sahilseth.com/about/",
       "excerpt"		: "genomics enthusiast living in Houston"
     }
   
