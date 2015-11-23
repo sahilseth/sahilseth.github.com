@@ -20,6 +20,7 @@ Recently, I made a using a small package `params`, which reads configuration fil
 2. dynamic changing of params [`set_opts()`]
 3. fetching and pretty printing of params [`get_opts()`]
 
+### easy loading of params, using tsv files
 
 Basically, **`load_opts()`** can automatically recognize a few file extensions, read and load these files:
 
@@ -33,6 +34,8 @@ For example, a `.conf` file is assumed to be tab delimited.
 conf = system.file("conf/params.conf", package = "params")
 opts = load_opts(conf)
 ```
+
+### pretty printing
 
 Now if we have a bunch of parameters, its always easier to seem them as a table; `get_opts()` to rescue. This uses the nifty `kable` function from knitr.
 
@@ -50,6 +53,8 @@ get_opts()
 
 To extract a specific parameter, simply use `get_opts("param_name")`.
 
+### nested parameters
+
 Additionally, there are times where we may have a set of nested parameters; i.e. a former parameter is a part of later. This is quite useful, such that one may define the base path for all the tools, and all other paths would be relative to it (`{{{toolpath}}}/samtools`, `{{{toolpath}}}/bwa`, etc.).
 
 Taking a simple example, lets use first and last names.
@@ -60,8 +65,10 @@ Taking a simple example, lets use first and last names.
 set_opts(first = "John", last = "Doe", full_name = '{{{first}}} {{{last}}}')
 ```
 
-**Automatic checking**
+Now, `get_opts("full_name")` would reveal `John Doe`.
 
-Additionally, values all parameters ending with `_exe|_path|_dir` are checked by `load_opts`, whether they exist or not. If they don't exist a warning (not error) is thrown, informing user of the issue.
+### automatic checking of file path
 
-The package is already on [CRAN](https://cran.rstudio.com/web/packages/params/index.html), though a more recent devel version is available on [github](https://github.com/sahilseth/params). Also, a detailed readme and examples are available on the [this website](http://sahilseth.com/params/).
+Additionally, values of all parameters ending with `_exe|_path|_dir` are checked by `load_opts`; whether they exist or not. If they don't exist a warning (not error) is thrown, informing the user of the issue.
+
+The package is on [CRAN](https://cran.rstudio.com/web/packages/params/index.html), though a more recent development version is available at [github.com/sahilseth/params](https://github.com/sahilseth/params). Also, a detailed readme with examples are available on the [sahilseth.com/params](http://sahilseth.com/params/).
