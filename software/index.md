@@ -3,10 +3,6 @@ layout: page
 modified: 2014-08-08T19:44:38.564948-04:00
 ---
 
-
-
-## R packages
-
 <a href="https://docs.flowr.space">
 <img src="/images/flowr-shot.png" width="300">
 </a>
