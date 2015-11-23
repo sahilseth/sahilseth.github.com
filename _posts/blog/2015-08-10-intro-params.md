@@ -29,14 +29,14 @@ Basically, **`load_opts()`** can automatically recognize a few file extensions, 
 
 For example, a `.conf` file is assumed to be tab delimited.
 
-```
+```r
 conf = system.file("conf/params.conf", package = "params")
 opts = load_opts(conf)
 ```
 
 Now if we have a bunch of parameters, its always easier to seem them as a table; `get_opts()` to rescue. This uses the nifty `kable` function from knitr.
 
-```
+```r
 get_opts()
 |name          |value            |
 |:-------------|:----------------|
@@ -54,7 +54,7 @@ Additionally, there are times where we may have a set of nested parameters; i.e.
 
 Taking a simple example, lets use first and last names.
 
-```
+```r
 ## setting first and last names
 ## setting full name
 set_opts(first = "John", last = "Doe",
