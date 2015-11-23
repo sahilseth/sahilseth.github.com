@@ -57,8 +57,7 @@ Taking a simple example, lets use first and last names.
 ```r
 ## setting first and last names
 ## setting full name
-set_opts(first = "John", last = "Doe",
-        'full_name' = '{{{first}}} {{{last}}}')
+set_opts(first = "John", last = "Doe", full_name = '{{{first}}} {{{last}}}')
 ```
 
 **Automatic checking**
