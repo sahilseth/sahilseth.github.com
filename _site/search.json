@@ -15,18 +15,6 @@
   
 
   
-
-  
-    ,{
-      "title"			: "Sahil Seth",
-      "link"			: "http://sahilseth.com/",
-      "excerpt"		: "genomics enthusiast living in Houston"
-    }
-  
-
-  
-
-  
     ,{
       "title"			: "Sahil Seth",
       "link"			: "http://sahilseth.com/about/",
@@ -36,6 +24,20 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+    ,{
+      "title"			: "Sahil Seth",
+      "link"			: "http://sahilseth.com/",
+      "excerpt"		: "genomics enthusiast living in Houston"
+    }
   
 
   
