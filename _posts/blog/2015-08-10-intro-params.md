@@ -3,6 +3,7 @@ layout: post
 title: params; Simplifying Params
 date: 2015-08-10
 categories: blog
+excerpt: "CRAN package Simplifying use of parameters"
 tags:
 - R
 - params
