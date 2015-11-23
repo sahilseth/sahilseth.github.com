@@ -1,16 +1,17 @@
 # Site navigation links
 
-- title: About
+- title: about
   url: /about/
 
-#- title: Articles
-#  url: /articles/
 
 - title: blog
   url: /blog/
 
 - title: publications
   url: https://scholar.google.com/citations?user=aXwxLwEAAAAJ
+
+- title: software
+  url: /software/
 
 - title: LinkedIn
   url: https://www.linkedin.com/in/sahilseth
