@@ -11,9 +11,6 @@ tags:
 - cran
 ---
 
-tl;dr
-
--
 
 I have been using R packages to wrangle genomics data for a few years. Often we have a huge list of parameters including paths to apps, their default parameters, reference genome files and other related files. While it is possible to use R's default `options()` function to manage these, often the space becomes quite cluttered.
 
