@@ -1,0 +1,38 @@
+Assembling some brief tidbits on heirarchial clustering using R
+
+One of the initial question we face, is what clustering method to use? 
+In addition for the same clustering method, one has several options for 
+distance methods.
+
+From R, we see there are several options for calculating distance:
+
+euclidean
+
+    Usual distance between the two vectors (2 norm aka L_2), sqrt(sum((x_i - y_i)^2)).
+maximum:
+
+    Maximum distance between two components of x and y (supremum norm)
+manhattan:
+
+    Absolute distance between the two vectors (1 norm aka L_1).
+canberra:
+
+    sum(|x_i - y_i| / |x_i + y_i|). Terms with zero numerator and denominator are omitted from the sum and treated as if the values were missing.
+
+    This is intended for non-negative values (e.g., counts): taking the absolute value of the denominator is a 1998 R modification to avoid negative distances.
+binary:
+
+    (aka asymmetric binary): The vectors are regarded as binary bits, so non-zero elements are ‘on’ and zero elements are ‘off’. The distance is the proportion of bits in which only one is on amongst those in which at least one is on.
+minkowski:
+
+    The p norm, the pth root of the sum of the pth powers of the differences of the components.
+
+
+
+Depending on the type of data
+
+Jaccard index
+
+
+References:
+http://stats.stackexchange.com/questions/3713/choosing-clustering-method
