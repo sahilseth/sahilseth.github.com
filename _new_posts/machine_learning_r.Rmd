@@ -1,0 +1,11 @@
+An updated set of links and packages for machine learning in R
+
+For R, CRAN task views are a major source of package listings on a topic. 
+Specifically [Machine Learning](https://cran.r-project.org/web/views/MachineLearning.html) view has links to 87 (as of Feb 05, 2017) such packages.
+
+Although, each package serves a purpose and complements others in certain ways. It may be daunting to work with multiple packages
+each with their peculiar interfaces.
+Interestingly some of the packages have picked up on the tidy-data principles.
+
+A few recent interesting packages are `mlr`, `pipelearner`, `modelr` and `broom`. Each of these are trying to attack the same problem 
+of arriving at a coherent approach to machine learing in R.
