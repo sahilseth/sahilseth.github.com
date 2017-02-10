@@ -22,3 +22,14 @@ cut -f8 ALL_mutations_removed_by_filters.txt | sort | uniq -c
     185 NHLBI-ESP-6500
      72 SEQ-ARTIF-OR-RARE-SNP
      
+Mutect filters,
+http://www.nature.com/nbt/journal/v31/n3/fig_tab/nbt.2514_T1.html
+Clustered position: variations at almost the same position
+Observed in Control: observed in matched normal/panel of normals
+Proximal gap: nearby misaligned small insertion/deletion events (>=3 reads with insertions in 11-bp)
+possible_contimations: cross-contamination from other samples. Not sure how it is calculated.
+
+This publication, ignored this filter,
+biorxiv.org/highwire/filestream/12262/field_highwire_adjunct.../0/043612-1.pdf
+
+
