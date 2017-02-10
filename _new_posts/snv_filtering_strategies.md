@@ -24,12 +24,25 @@ cut -f8 ALL_mutations_removed_by_filters.txt | sort | uniq -c
      
 Mutect filters,
 http://www.nature.com/nbt/journal/v31/n3/fig_tab/nbt.2514_T1.html
+http://gatkforums.broadinstitute.org/gatk/discussion/4464/how-mutect-filters-candidate-mutations
+
 Clustered position: variations at almost the same position
 Observed in Control: observed in matched normal/panel of normals
 Proximal gap: nearby misaligned small insertion/deletion events (>=3 reads with insertions in 11-bp)
 possible_contimations: cross-contamination from other samples. Not sure how it is calculated.
+This filter rejects candidates with potential cross-patient contamination, controlled by --fraction_contamination.
+In the CALLSTATS output file, the relevant columns are labeled t_lod_fstar and contaminant_lod.
+
 
 This publication, ignored this filter,
 biorxiv.org/highwire/filestream/12262/field_highwire_adjunct.../0/043612-1.pdf
 
+## sequencing artefacts,
+such as C > A/G > T artifacts (from FFPE)
+http://core-genomics.blogspot.com/2014/08/ffpe-bane-of-next-generation-sequencing.html
+
+deamination of cytosine bases converting them to uracil and generating thymines during PCR amplification
+
+https://www.omicsonline.org/open-access/validation-of-next-generation-sequencing-cancer-panels-for-clinical-somatic-mutation-profiling-identification-of-source-of-variations-and-artifacts-using-ffpe-tissues-jngsa.1000109.php?aid=32889
+> We also found very high C to T mutation calls associated with Illumina Cancer Panel using TruSeq library preparation protocol (but not with Ion Torrent using AmpliSeq protocol) when a less stringent filter set was used.
 
