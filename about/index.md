@@ -11,7 +11,7 @@ modified: 2014-08-08T19:44:38.564948-04:00
 --->
 
 
-I am an Associate Scientist at [Institute of Applied Cancer Science][iacs]/[Genomic Medine][gm], [MD Anderson Cancer Center](http://www.cancermoonshots.org/research/).
+I am an Associate Scientist at [Institute of Applied Cancer Science][iacs]/[Genomic Medicine][gm], [MD Anderson Cancer Center](http://www.cancermoonshots.org/research/).
 
 During the last few years I have collaborated on several different problems in
 cancer genomics; leading to a few publications (summarized on [google scholar][scholar]).
